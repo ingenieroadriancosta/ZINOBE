@@ -1,7 +1,9 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import webbrowser
+port = 8000
 class WebServerHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path.endswith(""):
+        if self.path.endswith("/"):
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
@@ -11,10 +13,10 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.send_error(404, 'File Not Found: %s' % self.path)
 def main():
     try:
-        port = 8000
         server = HTTPServer(('', port), WebServerHandler)
         print ("Web Server running on port %s" % port)
         print ("http://localhost:%s/" % port)
+        webbrowser.open_new( "http://localhost:%s/" % port )
         server.serve_forever()
     except KeyboardInterrupt:
         print (" ^C entered, stopping web server....")
