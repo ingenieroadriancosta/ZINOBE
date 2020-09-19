@@ -5,10 +5,8 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            print (type( open("index.html", "rb", buffering=0).read() ))
             self.wfile.write( open("index.html", "rb", buffering=0).read() )
             self.wfile.write( open("index.html", "rb", buffering=0).read() )
-            return
         else:
             self.send_error(404, 'File Not Found: %s' % self.path)
 def main():
