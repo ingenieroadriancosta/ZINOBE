@@ -1,6 +1,7 @@
 **Tabla de contenido**
 - [1 - PLANTEAMIENTO DE LA PRUEBA](#1---planteamiento-de-la-prueba)
 - [2 - PLANTEAMIENTO DE LA SOLUCION](#2---planteamiento-de-la-solucion)
+- [3 - EJECUCION DE LA SOLUCION](#3---ejecucion-de-la-solucion)
 
 
 
@@ -60,6 +61,12 @@ Todo el código está en la carpeta **src**. En ella se encuentran tres archivos
 - **index.py**
 - **manyfuncs.py**
 - **index.html**
+
+Debe ejecutarse el siguiente comando:
+**`python index.py`**
+
+
+
 
 ```python
 # more python code
