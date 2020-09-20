@@ -32,7 +32,6 @@ def cls():
 #################################################################
 def get_ulr_response_as_json( url1 ):
     import requests
-    import pandas
     x = requests.get(url1)
     y = json.loads(x.text)
     return y
