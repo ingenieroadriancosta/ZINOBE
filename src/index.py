@@ -79,6 +79,7 @@ def main():
     except KeyboardInterrupt:
         print (" ^C entered, stopping web server....")
         server.socket.close()
+        print("FIN")
 
 if __name__ == '__main__':
     main()
