@@ -2,7 +2,7 @@ import manyfuncs  as mf
 mf.getimports()
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import io, os, sqlite3, webbrowser, time, json
+import io, os, webbrowser, time, json
 import pandas as pds
 
 ###############################################################################
@@ -18,13 +18,15 @@ url2 = 'https://restcountries.eu/rest/v2/all'
 ## REALIZA TODA LA PETICIÓN DE LA PRUEBA Y LO DEVUELVE AL
 ## CLIENTE
 def procs(ownself):
-    ##
+    # DESCARGAR DE "URL1"
     x = mf.get_ulr_response_as_json(url1)
+    # DESCARGAR DE "URL2"
     y = mf.get_ulr_response_as_json(url2)
     ##
     allregions = []
     table = []
     ti = time.perf_counter()
+    ## obtener regiones
     for t in reversed( range(len(y)) ):
         ss = x[t]['region']
         matching = [s for s in allregions if ss in s]

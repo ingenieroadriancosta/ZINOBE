@@ -1,6 +1,7 @@
 import math, os
 import json 
 import hashlib
+import sqlite3
 #################################################################
 def getimports():
     try:
@@ -37,6 +38,8 @@ def tosha1( text ):
     h = hashlib.new("sha1", text.encode('utf8') )
     return h.hexdigest().upper()
 #################################################################
+#################################################################
+#################################################################
 def insertintoHTML( htmlname, df ):
     htmltbl = "<tr>\n"
     for col in df.columns:
@@ -53,5 +56,24 @@ def insertintoHTML( htmlname, df ):
     incnt = open( htmlname, "rb", buffering=0).read().decode('utf-8')
     incnt = incnt.replace( "{% tabla de contenido %}", htmltbl )
     return incnt
-
+#################################################################
+#################################################################
+#################################################################
+def savesqlite3( df ):
+    querycreate = "CREATE TABLE IF NOT EXIST ZINOBE( "
+    valuesintable = "("
+    for col in df.columns:
+        valuesintable += "{0}, ".format(col)
+    conn = sqlite3.connect('ZINOBE.db')
+    c = conn.cursor()
+    # Create table
+    c.execute('''CREATE TABLE if not exists stocks
+                    (Region text, City_Name text, Languaje text, Time text)''')
+    # Insert a row of data
+    c.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
+    # Save (commit) the changes
+    conn.commit()
+    # We can also close the connection if we are done with it.
+    # Just be sure any changes have been committed or they will be lost.
+    conn.close()
 
