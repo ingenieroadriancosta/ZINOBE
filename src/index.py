@@ -45,7 +45,7 @@ def procs():
         df = pds.DataFrame(table)
         #
         # GUARDAR EN SQLITE3
-        mf.savesqlite3(None)
+        mf.savesqlite3(df)
         #
         # SALVAR LOS DATOS EN UN ARCHIVO JSON.
         df.to_json('data.json')
