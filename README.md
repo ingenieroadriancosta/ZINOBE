@@ -1,3 +1,7 @@
+- [1 - PLANTEAMIENTO DE LA PRUEBA](#1---planteamiento-de-la-prueba)
+- [2 - DISEÑO DE LA SOLUCION](#2---dise-o-de-la-solucion)
+
+
 
 **Tabla de contenido**
 
