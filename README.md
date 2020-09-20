@@ -1,6 +1,6 @@
 **Tabla de contenido**
 # Tabla de contenidos
-[TABLA DE CONTENIDO](#tabla-de-contenido)
+[TABLA DE CONTENIDOS](#tabla-de-contenidos)
 
 - [1 - PLANTEAMIENTO DE LA PRUEBA](#1---planteamiento-de-la-prueba)
 - [2 - PLANTEAMIENTO DE LA SOLUCION](#2---planteamiento-de-la-solucion)
@@ -41,7 +41,7 @@ Desarrolle una aplicacion en python que genere la tabla anterior teniendo las si
 * Entrega Test Unitarios
 * Presenta un diseño de su solucion.
 
-[TABLA DE CONTENIDO](#tabla-de-contenido)
+[TABLA DE CONTENIDOS](#tabla-de-contenidos)
 
 # 2 - PLANTEAMIENTO DE LA SOLUCION
 1. En el punto 1 del plantemamiento de la prueba se solicita descargar el contenido desde la URL: https://rapidapi.com/apilayernet/api/rest-countries-v1 . Esta URL responde con un JSON, aunque necesita un **TOKENID** para poder hacerlo. Para tal fin se debe crear una cuenta, obtener el **TOKENID** y con la URL https://restcountries-v1.p.rapidapi.com/all se debe pasar por parámetro en una petición GET lo siguiente: **rapidapi-key=TOKENID** de la siguiente forma:
