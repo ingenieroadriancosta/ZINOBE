@@ -1,3 +1,14 @@
+<h2>Table of Contents</h2>
+
+<a href="#Put H2 Heading Here">1. Put H2 Heading Here</a>
+<a href="#Put H2 Heading Here">2. Put H2 Heading Here</a> 
+<a href="#Put H2 Heading Here">3. Put H2 Heading Here</a> 
+<a style="margin-left: 2rem;" href="#H3 Sub-Heading">3.1. H3 Sub-Heading</a> 
+<a style="margin-left: 2rem;" href="#H3 Sub-Heading">3.2. H3 Sub-Heading</a>
+
+
+
+
 
 **Tabla de contenido**
 
@@ -67,4 +78,10 @@ sin embargo tambien se realizará de manera automática.
 
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+<h2 id="1. Put H2 Heading Here">1. Put H2 Heading Here</h2>
+
 
