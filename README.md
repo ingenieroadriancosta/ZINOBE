@@ -1,11 +1,8 @@
+**Tabla de contenido**
 - [1 - PLANTEAMIENTO DE LA PRUEBA](#1---planteamiento-de-la-prueba)
 - [2 - PLANTEAMIENTO DE LA SOLUCION](#2---planteamiento-de-la-solucion)
 
 
-
-**Tabla de contenido**
-
-[TOC]
 
 <br>
 <br>
@@ -57,3 +54,4 @@ sin embargo tambien se realizará de manera automática.
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 
+https://ecotrust-canada.github.io/markdown-toc/
