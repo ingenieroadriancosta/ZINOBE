@@ -1,4 +1,5 @@
 **Tabla de contenido**
+# Tabla de contenidos
 [TABLA DE CONTENIDO](#tabla-de-contenido)
 
 - [1 - PLANTEAMIENTO DE LA PRUEBA](#1---planteamiento-de-la-prueba)
