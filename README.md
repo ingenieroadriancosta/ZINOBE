@@ -177,7 +177,8 @@ En el campo **{% tabla de contenido %}** se cambia dicho contenido por una estru
 En el campo **{% tabla de tiempos %}** se cambia por un contenido en el cual se presentan los tiempos total, mínimo, máximo etc.
 
 # 7 - BASE DE DATOS
-
+La base de datos se crea por medio del módulo `sqlite3` y sus funciones. 
+La base de datos que se crea tiene por nombre **(ZINOBE.db)**.
 
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
