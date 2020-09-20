@@ -32,15 +32,21 @@ def procs(ownself):
             dtmp = { 'Region':y[t]['region'], 'City Name': y[t]['name'], 'Languaje': mf.tosha1(y[t]['languages'][0]['name']),'Time':tc}
             table.append( dtmp )
             ti = time.perf_counter()
+    # SALVAR LOS DATOS EN UN ARCHIVO JSON.
     with open('data.json', 'w') as f:json.dump(table, f)
     #
     df = pds.DataFrame(table)
-    print( df )
-    print( df.describe() )
+    df.to_json('data.json')
+    #print( df.describe() );print('\n')
+    #aa = df.mean(axis=0)
+    #print( aa );print('\n')
+    #print( df['Region'] )
+    #
+    htmlcontent = mf.insertintoHTML( 'index.html', table, df )
+    print( htmlcontent )
     #
     exit(0)
     #
-    htmlcontent = mf.insertintoHTML( 'index.html', table )
     ownself.wfile.write( htmlcontent.encode('utf8') )
     #
     #

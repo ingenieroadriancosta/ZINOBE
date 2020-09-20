@@ -37,15 +37,19 @@ def tosha1( text ):
     h = hashlib.new("sha1", text.encode('utf8') )
     return h.hexdigest().upper()
 #################################################################
-def insertintoHTML( htmlname, table ):
-    htmltbl = ""
-    for datas in table:
-        htmltbl = htmltbl + "<tr>\n"
-        htmltbl = htmltbl + "<td>" + datas['Region'] + "</td>\n"
-        htmltbl = htmltbl + "<td>" + datas['City Name'] + "</td>\n"
-        htmltbl = htmltbl + "<td>" + datas['Languaje'] + "</td>\n"
-        htmltbl = htmltbl + "<td>" + ("{0:.4f}".format(datas['Time'])) + "</td>\n"
-        htmltbl = htmltbl + "</tr>\n"
+def insertintoHTML( htmlname, table, df ):
+    htmltbl = "<tr>\n"
+    for col in df.columns:
+        htmltbl += "<th scope='col'>{0}</th>\n".format(col)
+    htmltbl += "</tr>\n\n"
+    for datasiloc in df.iloc:
+        htmltbl += "<tr>\n"
+        for datas in datasiloc:
+            if( "{0}".format(type(datas))=="<class 'numpy.float64'>" ):
+                htmltbl += "<td>" + ("{0:.2f} ms".format(datas)) + "</td>\n"
+            else:
+                htmltbl += "<td>" + ("{0}".format(datas)) + "</td>\n"
+        htmltbl += "</tr>\n\n"
     incnt = open( htmlname, "rb", buffering=0).read().decode('utf-8')
     incnt = incnt.replace( "{% tabla de contenido %}", htmltbl )
     return incnt
