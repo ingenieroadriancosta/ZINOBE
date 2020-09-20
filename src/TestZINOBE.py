@@ -3,8 +3,7 @@ import index
 class TestMyModule(unittest.TestCase):
     def test_index_procs(self):
         print("RESULTADO DE LA PRUEBA: FUNCION index.procs()")
-        self.assertRaises(index.procs(), {Exception} )
-        #self.assertIsNotNone(index.procs())
+        self.assertIsNotNone(index.procs())
 
 if __name__ == "__main__":
     print("-----------------------------------------")

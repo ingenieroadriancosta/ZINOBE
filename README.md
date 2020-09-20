@@ -3,6 +3,8 @@
 - [2 - PLANTEAMIENTO DE LA SOLUCION](#2---planteamiento-de-la-solucion)
 - [3 - EJECUCION DE LA SOLUCION](#3---ejecucion-de-la-solucion)
 - [4 - PRUEBAS UNITARIAS](#4---pruebas-unitarias)
+- [5 - MONTAJE DEL SERVIDOR](#5---montaje-del-servidor)
+
 
 
 
@@ -70,16 +72,18 @@ Debe ejecutarse el siguiente comando:
 
 # 4 - PRUEBAS UNITARIAS
 
-Para las pruebas unitarias se probará la función **`procs`** que es la que se encarga de realizar todos los requerimientos.
+Para las pruebas unitarias se probará la función **`procs`** que es la que se encarga de realizar todos los requerimientos y usa todas las funciones en `index.py` y `manyfuncs.py`.
+
 El módulo que se encarga de realizar las pruebas unitarias es **`TestZINOBE.py`**. Para realizar la prueba se ejecuta el siguiente comando:
 **`python TestZINOBE.py`**
+El contenido es el siguiente:
 ```python
 import unittest
 import index 
 class TestMyModule(unittest.TestCase):
     def test_index_procs(self):
         print("RESULTADO DE LA PRUEBA: FUNCION index.procs()")
-        self.assertTrue(index.procs())
+        self.assertIsNotNone(index.procs())
 
 if __name__ == "__main__":
     print("-----------------------------------------")
@@ -87,7 +91,10 @@ if __name__ == "__main__":
     print("-----------------------------------------\n\n")
     unittest.main()
 ```
+Despues de realizar la prueba no hubo ninguna advertencia ni error.
 
+
+# 5 - MONTAJE DEL SERVIDOR
 
 
 <br><br><br><br><br><br><br><br><br><br>
