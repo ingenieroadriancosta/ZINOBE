@@ -37,7 +37,7 @@ def tosha1( text ):
     h = hashlib.new("sha1", text.encode('utf8') )
     return h.hexdigest().upper()
 #################################################################
-def insertintoHTML( htmlname, table, df ):
+def insertintoHTML( htmlname, df ):
     htmltbl = "<tr>\n"
     for col in df.columns:
         htmltbl += "<th scope='col'>{0}</th>\n".format(col)

@@ -14,6 +14,9 @@ url1 = 'https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=125c2c22famshe0
 url2 = 'https://restcountries.eu/rest/v2/all'
 ###############################################################################
 ###############################################################################
+## LA FUNCIÓN (procs(ownself)) 
+## REALIZA TODA LA PETICIÓN DE LA PRUEBA Y LO DEVUELVE AL
+## CLIENTE
 def procs(ownself):
     ##
     x = mf.get_ulr_response_as_json(url1)
@@ -32,25 +35,18 @@ def procs(ownself):
             dtmp = { 'Region':y[t]['region'], 'City Name': y[t]['name'], 'Languaje': mf.tosha1(y[t]['languages'][0]['name']),'Time':tc}
             table.append( dtmp )
             ti = time.perf_counter()
-    # SALVAR LOS DATOS EN UN ARCHIVO JSON.
-    with open('data.json', 'w') as f:json.dump(table, f)
-    #
+    # CREAR DATAFRAME
     df = pds.DataFrame(table)
+    # SALVAR LOS DATOS EN UN ARCHIVO JSON.
     df.to_json('data.json')
-    #print( df.describe() );print('\n')
-    #aa = df.mean(axis=0)
-    #print( aa );print('\n')
-    #print( df['Region'] )
     #
-    htmlcontent = mf.insertintoHTML( 'index.html', table, df )
-    print( htmlcontent )
+    # INSERTAR LOS DATOS EN EL HTML
+    htmlcontent = mf.insertintoHTML( 'index.html', df )
     #
-    exit(0)
-    #
+    # ENVIARLO AL CLIENTE
     ownself.wfile.write( htmlcontent.encode('utf8') )
     #
     #
-procs(0)
 ###############################################################################
 ## CLASE PARA EL SERVIDOR
 ###############################################################################
