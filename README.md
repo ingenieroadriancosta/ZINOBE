@@ -5,7 +5,7 @@
 - [4 - PRUEBAS UNITARIAS](#4---pruebas-unitarias)
 - [5 - MONTAJE DEL SERVIDOR](#5---montaje-del-servidor)
 - [6 - ACERCA DEL ARCHIVO HTML INDEX](#6---acerca-del-archivo-html-index)
-
+- [7 - BASE DE DATOS](#7---base-de-datos)
 
 
 
@@ -130,7 +130,53 @@ La función **`procs()`** devuelve el contenido ya organizado para el cliente.
 
 
 # 6 - ACERCA DEL ARCHIVO HTML INDEX
+En el archivo **`index.html`** se almacena la estructura básica de una pagina HTML, pero además se utiliza para rellenar las tablas.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2>PRUEBA TECNICA ZINOBE</h2>
+    <h5>Desarrollada por <b><em>Adrián Costa</em></b></h5>
+    <p>La base de datos se encuentra como (<b>ZINOBE.db</b>)</p>
+    <table class='table table-bordered table-responsive-sm' 
+                style='width:80%; text-align: center; vertical-align: middle;' >
+{% tabla de contenido %}
+    </table>
+    <br>
+    <h3><b>TABLA DE TIEMPOS(ms)</b></h3>
+    <table class='table table-bordered table-responsive-sm' 
+                style='width:80%; text-align: center; vertical-align: middle;' >
+        <tr>
+            <th scope='col'>TOTAL</th>
+            <th scope='col'>PROMEDIO</th>
+            <th scope='col'>MÍNIMO</th>
+            <th scope='col'>MÁXIMO</th>
+        </tr>
+{% tabla de tiempos %}
+    </table>
+</body>
+</html>
+```
+En el campo **{% tabla de contenido %}** se cambia dicho contenido por una estructura adecuada para la tabla:
 
+|  Region | City Name |  Languaje | Time  |
+|---|---|---|---|
+|  **...** | **...**  |  **...** | **...**  |
+| **...**  | **...**  | **...**  | **...**  |
+| **...**  | **...**  | **...**  | **...**  |
+<br>
+<br>
+
+En el campo **{% tabla de tiempos %}** se cambia por un contenido en el cual se presentan los tiempos total, mínimo, máximo etc.
+
+# 7 - BASE DE DATOS
 
 
 <br><br><br><br><br><br><br><br><br><br>
