@@ -2,7 +2,7 @@ import manyfuncs  as mf
 mf.getimports()
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import io, os, webbrowser, time, json
+import io, os, webbrowser, time, json, sys
 import pandas as pds
 
 ###############################################################################
@@ -18,39 +18,45 @@ url2 = 'https://restcountries.eu/rest/v2/all'
 ## REALIZA TODA LA PETICIÓN DE LA PRUEBA Y LO DEVUELVE AL
 ## CLIENTE
 def procs():
-    # DESCARGAR DE "URL1"
-    x = mf.get_ulr_response_as_json(url1)
-    # DESCARGAR DE "URL2"
-    y = mf.get_ulr_response_as_json(url2)
-    ##
-    allregions = []
-    table = []
-    ti = time.perf_counter()
-    #
-    ## obtener regiones
-    for t in reversed( range(len(y)) ):
-        ss = x[t]['region']
-        matching = [s for s in allregions if ss in s]
-        if not matching:
-            allregions.append(ss)
-            te = time.perf_counter()
-            tc = 1000*(te - ti) 
-            dtmp = { 'Region':y[t]['region'], 'City Name': y[t]['name'], 'Languaje': mf.tosha1(y[t]['languages'][0]['name']),'Time':tc}
-            table.append( dtmp )
-            ti = time.perf_counter()
-    #
-    # CREAR DATAFRAME
-    df = pds.DataFrame(table)
-    #
-    # GUARDAR EN SQLITE3
-    mf.savesqlite3(df)
-    #
-    # SALVAR LOS DATOS EN UN ARCHIVO JSON.
-    df.to_json('data.json')
-    #
-    # INSERTAR LOS DATOS EN EL HTML
-    htmlcontent = mf.insertintoHTML( 'index.html', df )
-    return htmlcontent
+    error = None
+    try:
+        # DESCARGAR DE "URL1"
+        x = mf.get_ulr_response_as_json(url1)
+        # DESCARGAR DE "URL2"
+        y = mf.get_ulr_response_as_json(url2)
+        ##
+        allregions = []
+        table = []
+        ti = time.perf_counter()
+        #
+        ## obtener regiones
+        for t in reversed( range(len(y)) ):
+            ss = x[t]['region']
+            matching = [s for s in allregions if ss in s]
+            if not matching:
+                allregions.append(ss)
+                te = time.perf_counter()
+                tc = 1000*(te - ti) 
+                dtmp = { 'Region':y[t]['region'], 'City Name': y[t]['name'], 'Languaje': mf.tosha1(y[t]['languages'][0]['name']),'Time':tc}
+                table.append( dtmp )
+                ti = time.perf_counter()
+        #
+        # CREAR DATAFRAME
+        df = pds.DataFrame(table)
+        #
+        # GUARDAR EN SQLITE3
+        mf.savesqlite3(None)
+        #
+        # SALVAR LOS DATOS EN UN ARCHIVO JSON.
+        df.to_json('data.json')
+        #
+        # INSERTAR LOS DATOS EN EL HTML
+        htmlcontent = mf.insertintoHTML( 'index.html', df )
+        return htmlcontent, error
+    except Exception as e:
+        error = True
+        htmlcontent = e
+        return htmlcontent, error
     #
     #
     #
@@ -64,9 +70,14 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            htmlcontent = procs()
-            # ENVIARLO EL CONTENIDO AL CLIENTE
-            self.wfile.write( htmlcontent.encode('utf8') )
+            htmlcontent, error = procs()
+            if error!=None:
+                htmlcontent = mf.exception_to_string(htmlcontent)
+                htmlcontent = htmlcontent.replace('\n', "<br><br>" )
+                self.wfile.write( ("Error inesperado, contacte a su proveedor.<br>ERROR: <br><h3 style='background-color:red;'>" + htmlcontent + "</h3>" ).encode('utf8') )
+            else:
+                # ENVIARLO EL CONTENIDO AL CLIENTE
+                self.wfile.write( htmlcontent.encode('utf8') )
         else:
             self.send_error(404, 'File Not Found: %s' % self.path)
 def main():
