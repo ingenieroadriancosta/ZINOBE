@@ -47,7 +47,7 @@ Para realizar dicha acción se necesita el módulo **requests**. Este módulo se
 Una vez se obtienen los datos de la URL se convierten a **JSON** por medio del módulo **json** que está en *python*.
 2. Para el punto 2 del **plantemamiento de la prueba** se realizan las mismas acciones de descarga y conversión que en el punto 1.
 3. Para el punto tres se utiliza el módulo **`hashlib`** en *python*, este permite la encripción en `SHA1`.
-4. Para la medición del tiempo se usa el módulo **`time`** en *python*. Pro medio de este y sus funciones se mide el tiempo en el que comienza la busqueda y el armado de la fila.
+4. Para la medición del tiempo se usa el módulo **`time`** en *python*. Por medio de este y sus funciones se mide el tiempo en el que comienza la busqueda y el armado de la fila.
 5. Una vez se tengan los datos organizados en un diccionario de *python* se utiliza el módulo pandas para crear el `DataFrame`. El módulo es externo a *python* y debe ser instalado por medio del comando:
 **`pip install pandas`**
 sin embargo tambien se realizará de manera automática.
