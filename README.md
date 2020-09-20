@@ -51,6 +51,18 @@ sin embargo tambien se realizará de manera automática.
 8. Para generar el archivo **JSON** se usará la función **to_json** de `DataFrame`.
 
 
+
+
+
+
+```python
+# more python code
+def math:
+    print("Hola")
+```
+
+
+
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 
