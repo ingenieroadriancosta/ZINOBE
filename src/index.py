@@ -1,17 +1,9 @@
 import manyfuncs  as mf
 mf.getimports()
-
+###############################################################################
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import io, os, webbrowser, time, json, sys
 import pandas as pds
-
-###############################################################################
-## PUERTO DE LA APLICACION i.e. ("http://localhost:%s/" % port)
-port = 8000
-###############################################################################
-## URLs de las APIs necesarias.
-url1 = 'https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=125c2c22famshe09ed1a643c5231p143e0ajsn061a27ed8f0e'
-url2 = 'https://restcountries.eu/rest/v2/all'
 ###############################################################################
 ###############################################################################
 ## LA FUNCIÓN (procs()) 
@@ -19,6 +11,10 @@ url2 = 'https://restcountries.eu/rest/v2/all'
 ## CLIENTE
 def procs():
     try:
+        ###############################################################################
+        ## URLs de las APIs necesarias.
+        url1 = 'https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=125c2c22famshe09ed1a643c5231p143e0ajsn061a27ed8f0e'
+        url2 = 'https://restcountries.eu/rest/v2/all'
         # DESCARGAR DE "URL1"
         x = mf.get_ulr_response_as_json(url1)
         # DESCARGAR DE "URL2"
@@ -76,6 +72,9 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.send_error(404, 'File Not Found: %s' % self.path)
 def main():
     try:
+        ###############################################################################
+        ## PUERTO DE LA APLICACION i.e. ("http://localhost:%s/" % port)
+        port = 8000
         server = HTTPServer(('', port), WebServerHandler)
         print ("Web Server running on port %s" % port)
         print ("\n\nhttp://localhost:%s/\n\n" % port)

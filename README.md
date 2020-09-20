@@ -4,6 +4,7 @@
 - [3 - EJECUCION DE LA SOLUCION](#3---ejecucion-de-la-solucion)
 - [4 - PRUEBAS UNITARIAS](#4---pruebas-unitarias)
 - [5 - MONTAJE DEL SERVIDOR](#5---montaje-del-servidor)
+- [6 - ACERCA DEL ARCHIVO HTML INDEX](#6---acerca-del-archivo-html-index)
 
 
 
@@ -95,9 +96,44 @@ Despues de realizar la prueba no hubo ninguna advertencia ni error.
 
 
 # 5 - MONTAJE DEL SERVIDOR
+El servidor se ha montado con el módulo **`http.server`** de python.
+Un servidor básico se ha desarrollado y se describe con el siguiente código:
+```python
+class WebServerHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path=="/":
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            htmlcontent = procs()
+            self.wfile.write( htmlcontent.encode('utf8') )
+        else:
+            self.send_error(404, 'File Not Found: %s' % self.path)
+def main():
+    try:
+        port = 8000
+        server = HTTPServer(('', port), WebServerHandler)
+        webbrowser.open_new( "http://localhost:%s/" % port )
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print (" ^C entered, stopping web server....")
+        server.socket.close()
+        print("FIN")
+
+if __name__ == '__main__':
+    main()
+```
+Para este caso, el servidor estará en:
+**http://localhost:8000**
+La función **`procs()`** devuelve el contenido ya organizado para el cliente.
+
+
+
+# 6 - ACERCA DEL ARCHIVO HTML INDEX
+
 
 
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 
-https://ecotrust-canada.github.io/markdown-toc/
+
