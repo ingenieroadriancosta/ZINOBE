@@ -35,17 +35,9 @@ Desarrolle una aplicacion en python que genere la tabla anterior teniendo las si
 
 
 # 2 - DISEÑO DE LA SOLUCION
-1. En el punto 1 del plantemamiento de la prueba se solicita descargar el contenido desde la URL:
-<br>
-https://rapidapi.com/apilayernet/api/rest-countries-v1
-<br>
-Esta URL responde con un JSON, aunque necesita un **TOKENID** para poder hacerlo. Para tal fin se debe crear una cuenta, obtener el **TOKENID** y con la URL https://restcountries-v1.p.rapidapi.com/all se debe pasar por parámetro en una petición GET lo siguiente: **rapidapi-key=TOKENID** de la siguiente forma:
+1. En el punto 1 del plantemamiento de la prueba se solicita descargar el contenido desde la URL: https://rapidapi.com/apilayernet/api/rest-countries-v1 . Esta URL responde con un JSON, aunque necesita un **TOKENID** para poder hacerlo. Para tal fin se debe crear una cuenta, obtener el **TOKENID** y con la URL https://restcountries-v1.p.rapidapi.com/all se debe pasar por parámetro en una petición GET lo siguiente: **rapidapi-key=TOKENID** de la siguiente forma:
 https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=XXXXXXXXXXXXXX
-Para realizar dicha acción se necesita el módulo **requests**. Este módulo se puede instalar en *python* por medio del siguiente comando:
-<br>
-**`pip install requests`**
-<br>
-**Sin embargo**, en la solución se implementarán funciones de instalación automática para tales fines.
+Para realizar dicha acción se necesita el módulo **requests**. Este módulo se puede instalar en *python* por medio del siguiente comando: **`pip install requests`**, **Sin embargo**, en la solución se implementarán funciones de instalación automática para tales fines.
 Una vez se obtienen los datos de la URL se convierten a **JSON** por medio del módulo **json** que está en *python*.
 <br>
 <br>
