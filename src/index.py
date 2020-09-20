@@ -14,10 +14,10 @@ url1 = 'https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=125c2c22famshe0
 url2 = 'https://restcountries.eu/rest/v2/all'
 ###############################################################################
 ###############################################################################
-## LA FUNCIÓN (procs(ownself)) 
+## LA FUNCIÓN (procs()) 
 ## REALIZA TODA LA PETICIÓN DE LA PRUEBA Y LO DEVUELVE AL
 ## CLIENTE
-def procs(ownself):
+def procs():
     # DESCARGAR DE "URL1"
     x = mf.get_ulr_response_as_json(url1)
     # DESCARGAR DE "URL2"
@@ -50,10 +50,9 @@ def procs(ownself):
     #
     # INSERTAR LOS DATOS EN EL HTML
     htmlcontent = mf.insertintoHTML( 'index.html', df )
+    return htmlcontent
     #
     #
-    # ENVIARLO AL CLIENTE
-    ownself.wfile.write( htmlcontent.encode('utf8') )
     #
     #
 ###############################################################################
@@ -65,7 +64,9 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            procs( self )
+            htmlcontent = procs()
+            # ENVIARLO EL CONTENIDO AL CLIENTE
+            self.wfile.write( htmlcontent.encode('utf8') )
         else:
             self.send_error(404, 'File Not Found: %s' % self.path)
 def main():
