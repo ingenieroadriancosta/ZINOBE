@@ -31,23 +31,37 @@ Desarrolle una aplicacion en python que genere la tabla anterior teniendo las si
 
 
 # 2 - DISEÑO DE LA SOLUCION
-En el punto 1 del plantemamiento de la prueba se solicita descargar el contenido desde la URL:
+1. En el punto 1 del plantemamiento de la prueba se solicita descargar el contenido desde la URL:
+<br>
 https://rapidapi.com/apilayernet/api/rest-countries-v1
-
+<br>
 Esta URL responde con un JSON, aunque necesita un **TOKENID** para poder hacerlo. Para tal fin se debe crear una cuenta, obtener el **TOKENID** y con la URL https://restcountries-v1.p.rapidapi.com/all se debe pasar por parámetro en una petición GET lo siguiente: **rapidapi-key=TOKENID** de la siguiente forma:
 https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=XXXXXXXXXXXXXX
-Luego de recibir la repuesta se debe convertir en un tipo **json** para poder usar sus datos de manera conveniete.
-
-Para realizar dicha acción se necesita el módulo
-**requests**. Este módulo se puede instalar en python por medio del siguiente comando:
-**pip install requests**
-
+Para realizar dicha acción se necesita el módulo **requests**. Este módulo se puede instalar en *python* por medio del siguiente comando:
+<br>
+**`pip install requests`**
+<br>
 **Sin embargo**, en la solución se implementarán funciones de instalación automática para tales fines.
+Una vez se obtienen los datos de la URL se convierten a **JSON** por medio del módulo **json** que está en *python*.
+<br>
+<br>
+2. Para el punto 2 del **plantemamiento de la prueba** se realizan las mismas acciones de descarga y conversión que en el punto 1.
+<br>
+3. Para el punto tres se utiliza el módulo **`hashlib`** en *python*, este permite la encripción en `SHA1`.
+<br>
+4. Para la medición del tiempo se usa el módulo **`time`** en *python*. Pro medio de este y sus funciones se mide el tiempo en el que comienza la busqueda y el armado de la fila.
+<br>
+5. Una vez se tengan los datos organizados en un diccionario de *python* se utiliza el módulo pandas para crear el `DataFrame`. El módulo es externo a *python* y debe ser instalado por medio del comando:
+**`pip install pandas`**
+sin embargo tambien se realizará de manera automática.
+<br>
+6. Para obtener los datos como *tiempo total, tiempo promedio, tiempo minimo y tiempo maximo* de procesamiento para cada fila se usarán las funciones de `DataFrame` **sum, mean, min y max**.
+<br>
+7. Para guardar los datos en sqlite3 se usa el módulo `sqlite3` de *python*.
+<br>
+8. Para generar el archivo **JSON** se usará la función **to_json** de `DataFrame`.
 
 
-
-
-
-
-
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
