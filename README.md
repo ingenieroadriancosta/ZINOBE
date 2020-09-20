@@ -53,7 +53,13 @@ sin embargo tambien se realizará de manera automática.
 
 
 
+# 3 - EJECUCION DE LA SOLUCION
 
+Todo el código está en la carpeta **src**. En ella se encuentran tres archivos fundamentales como son:
+
+- **index.py**
+- **manyfuncs.py**
+- **index.html**
 
 ```python
 # more python code
