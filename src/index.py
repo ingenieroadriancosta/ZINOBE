@@ -6,7 +6,7 @@ import io, os, webbrowser, time, json
 import pandas as pds
 
 ###############################################################################
-## PUERTO DE LA APLICACION
+## PUERTO DE LA APLICACION i.e. ("http://localhost:%s/" % port)
 port = 8000
 ###############################################################################
 ## URLs de las APIs necesarias.
@@ -56,13 +56,6 @@ def procs(ownself):
     ownself.wfile.write( htmlcontent.encode('utf8') )
     #
     #
-
-"""
-tiempo total, 
-el tiempo promedio, 
-el tiempo minimo
-el tiempo maximo 
-"""
 ###############################################################################
 ## CLASE PARA EL SERVIDOR
 ###############################################################################
