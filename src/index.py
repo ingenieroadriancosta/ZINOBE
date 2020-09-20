@@ -26,6 +26,7 @@ def procs(ownself):
     allregions = []
     table = []
     ti = time.perf_counter()
+    #
     ## obtener regiones
     for t in reversed( range(len(y)) ):
         ss = x[t]['region']
@@ -37,8 +38,13 @@ def procs(ownself):
             dtmp = { 'Region':y[t]['region'], 'City Name': y[t]['name'], 'Languaje': mf.tosha1(y[t]['languages'][0]['name']),'Time':tc}
             table.append( dtmp )
             ti = time.perf_counter()
+    #
     # CREAR DATAFRAME
     df = pds.DataFrame(table)
+    #
+    # GUARDAR EN SQLITE3
+    mf.savesqlite3(df)
+    #
     # SALVAR LOS DATOS EN UN ARCHIVO JSON.
     df.to_json('data.json')
     #
