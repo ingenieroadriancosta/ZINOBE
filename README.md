@@ -70,6 +70,9 @@ Debe ejecutarse el siguiente comando:
 
 # 4 - PRUEBAS UNITARIAS
 
+Para las pruebas unitarias se probará la función **`procs`** que es la que se encarga de realizar todos los requerimientos.
+El módulo que se encarga de realizar las pruebas unitarias es **`TestZINOBE.py`**. Para realizar la prueba se ejecuta el siguiente comando:
+**`python TestZINOBE.py`**
 ```python
 import unittest
 import index 
