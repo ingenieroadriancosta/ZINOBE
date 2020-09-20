@@ -1,5 +1,7 @@
 - [1 - PLANTEAMIENTO DE LA PRUEBA](#1---planteamiento-de-la-prueba)
-- [2 - DISEÑO DE LA SOLUCION](#2---SOLUCION(DESIGN))
+- [2 - SOLUCION(DESIGN)](#2---solucion-design-)
+
+
 
 
 
