@@ -62,7 +62,9 @@ def insertintoHTML( htmlname, df ):
             else:
                 htmltbl += "<td>" + ("{0}".format(datas)) + "</td>\n"
         htmltbl += "</tr>\n\n"
-    incnt = open( htmlname, "rb", buffering=0).read().decode('utf-8')
+    fd = open( htmlname, "rb", buffering=0)
+    incnt = fd.read().decode('utf-8')
+    fd.close()
     incnt = incnt.replace( "{% tabla de contenido %}", htmltbl )
     #
     # TABLA DE TIEMPOS

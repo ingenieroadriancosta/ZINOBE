@@ -18,7 +18,6 @@ url2 = 'https://restcountries.eu/rest/v2/all'
 ## REALIZA TODA LA PETICIÓN DE LA PRUEBA Y LO DEVUELVE AL
 ## CLIENTE
 def procs():
-    error = None
     try:
         # DESCARGAR DE "URL1"
         x = mf.get_ulr_response_as_json(url1)
@@ -52,11 +51,12 @@ def procs():
         #
         # INSERTAR LOS DATOS EN EL HTML
         htmlcontent = mf.insertintoHTML( 'index.html', df )
-        return htmlcontent, error
+        return htmlcontent
     except Exception as e:
-        error = True
-        htmlcontent = e
-        return htmlcontent, error
+        htmlcontent = mf.exception_to_string(e)
+        htmlcontent = htmlcontent.replace('\n', "<br><br>" )
+        htmlcontent = ("Error inesperado, contacte a su proveedor.<br>ERROR: <br><h3 style='background-color:red;'>" + htmlcontent + "</h3>" )
+        return htmlcontent
     #
     #
     #
@@ -70,14 +70,8 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            htmlcontent, error = procs()
-            if error!=None:
-                htmlcontent = mf.exception_to_string(htmlcontent)
-                htmlcontent = htmlcontent.replace('\n', "<br><br>" )
-                self.wfile.write( ("Error inesperado, contacte a su proveedor.<br>ERROR: <br><h3 style='background-color:red;'>" + htmlcontent + "</h3>" ).encode('utf8') )
-            else:
-                # ENVIARLO EL CONTENIDO AL CLIENTE
-                self.wfile.write( htmlcontent.encode('utf8') )
+            htmlcontent = procs()
+            self.wfile.write( htmlcontent.encode('utf8') )
         else:
             self.send_error(404, 'File Not Found: %s' % self.path)
 def main():
