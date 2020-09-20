@@ -51,10 +51,18 @@ def procs(ownself):
     # INSERTAR LOS DATOS EN EL HTML
     htmlcontent = mf.insertintoHTML( 'index.html', df )
     #
+    #
     # ENVIARLO AL CLIENTE
     ownself.wfile.write( htmlcontent.encode('utf8') )
     #
     #
+
+"""
+tiempo total, 
+el tiempo promedio, 
+el tiempo minimo
+el tiempo maximo 
+"""
 ###############################################################################
 ## CLASE PARA EL SERVIDOR
 ###############################################################################

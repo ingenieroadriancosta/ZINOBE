@@ -44,6 +44,7 @@ def tosha1( text ):
 #################################################################
 #################################################################
 def insertintoHTML( htmlname, df ):
+    # TABLA REGION, City Name... 
     htmltbl = "<tr>\n"
     for col in df.columns:
         htmltbl += "<th scope='col'>{0}</th>\n".format(col)
@@ -58,6 +59,17 @@ def insertintoHTML( htmlname, df ):
         htmltbl += "</tr>\n\n"
     incnt = open( htmlname, "rb", buffering=0).read().decode('utf-8')
     incnt = incnt.replace( "{% tabla de contenido %}", htmltbl )
+    #
+    # TABLA DE TIEMPOS
+    htmltbl  = "<tr>\n<td>{0:.4f}</td>\n".format( df['Time'].sum() )
+    htmltbl += "<td>{0}</td>\n".format( df['Time'].mean() )
+    htmltbl += "<td>{0}</td>\n".format( df['Time'].min() )
+    htmltbl += "<td>{0}</td>\n</tr>\n".format( df['Time'].max() )
+    #
+    incnt = incnt.replace( "{% tabla de tiempos %}", htmltbl )
+    #
+    #
+    #
     return incnt
 #################################################################
 #################################################################
