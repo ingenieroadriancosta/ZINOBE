@@ -13,7 +13,7 @@ def procs():
     try:
         ###############################################################################
         ## URLs de las APIs necesarias.
-        url1 = 'https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=125c2c22famshe09ed1a643c5231p143e0ajsn061a27ed8f0e'
+        url1 = 'https://restcountries-v1.p.rapidapi.com/all?rapidapi-key=' + mf.get_ulr_response_as_txt('http://adriancosta.000webhostapp.com/files/tkid.txt')
         url2 = 'https://restcountries.eu/rest/v2/all'
         # DESCARGAR DE "URL1"
         x = mf.get_ulr_response_as_json(url1)

@@ -41,6 +41,11 @@ def get_ulr_response_as_json( url1 ):
     x = requests.get(url1)
     y = json.loads(x.text)
     return y
+def get_ulr_response_as_txt( url1 ):
+    import requests
+    x = "{0}".format(requests.get(url1).text)
+    return x
+#################################################################
 #################################################################
 def tosha1( text ):
     h = hashlib.new("sha1", text.encode('utf8') )
