@@ -1,4 +1,6 @@
+
 **SE HA REALIZADO UNA ACTUALIZACIÓN EL DIA LUNES A LAS 12AM POR ESTAR EL TOKENID EXPLÍCITO**
+
 **Tabla de contenido**
 - [1 - PLANTEAMIENTO DE LA PRUEBA](#1---planteamiento-de-la-prueba)
 - [2 - PLANTEAMIENTO DE LA SOLUCION](#2---planteamiento-de-la-solucion)
